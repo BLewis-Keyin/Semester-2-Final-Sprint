@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Home from './component/home';
@@ -6,6 +7,7 @@ import About from './component/about';
 import Services from './component/services';
 import Contact from './component/contact';
 import { TaskProvider } from './TaskContext';
+import { ShoppingCartProvider } from './ShoppingCartContext';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
