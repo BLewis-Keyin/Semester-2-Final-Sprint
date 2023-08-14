@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ShoppingCartProvider } from './ShoppingCartContext'; // Import the context
+import { ShoppingCartProvider } from './component/ShoppingCartContext'; // Import the context
 
 import App from './App'; // Your main app component
 
