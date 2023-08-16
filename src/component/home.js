@@ -1,8 +1,103 @@
-// Home.js
-import React from 'react';
+import React, { useState } from 'react';
 
-const Home = () => {
-  return <div>Welcome to the Home Page!</div>;
+const Home = ({ showTasks }) => {
+  const [tasks, setTasks] = useState([]);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isTaskListOpen, setIsTaskListOpen] = useState(false);
+
+  const addTask = () => {
+    if (name.trim() !== '' && description.trim() !== '' && date.trim() !== '' && time.trim() !== '') {
+      setTasks([...tasks, { name, description, date, time }]);
+      setName('');
+      setDescription('');
+      setDate('');
+      setTime('');
+      setIsFormOpen(false);
+    }
+  };
+
+  const deleteTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  };
+
+  const toggleTaskList = () => {
+    setIsTaskListOpen(!isTaskListOpen);
+  };
+
+  return (
+    <div>
+      <h1>Home Page</h1>
+      {showTasks && (
+        <div>
+          <h1>Task App</h1>
+          <button onClick={() => setIsFormOpen(true)}>Add Task</button>
+
+          {isFormOpen && (
+            <div className="popup-overlay">
+              <div className="task-form-popup">
+                <h2>Add New Task</h2>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                />
+                <button onClick={addTask}>Add Task</button>
+                <button onClick={() => setIsFormOpen(false)}>Close</button>
+              </div>
+            </div>
+          )}
+
+          <div className="task-list-header">
+            <h2>Task List</h2>
+            <button className="toggle-button" onClick={toggleTaskList}>
+              {isTaskListOpen ? '▲' : '▼'}
+            </button>
+          </div>
+
+          {isTaskListOpen && (
+            <ul className="task-list">
+              {tasks.map((task, index) => (
+                <li key={index}>
+                  <strong>Name:</strong> {task.name}
+                  <br />
+                  <strong>Description:</strong> {task.description}
+                  <br />
+                  <strong>Date:</strong> {task.date}
+                  <br />
+                  <strong>Time:</strong> {task.time}
+                  <button onClick={() => deleteTask(index)}>Delete</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Home;
