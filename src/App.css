@@ -1,29 +1,99 @@
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
 }
 
-.task-form-popup {
-    background-color: white;
+body {
+    background-image: url('/public/Final\ Sprint\ background\ 1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* Global styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
+}
+
+/* Header */
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.navbar-wrapper {
+    padding: 10px;
+    border: solid black 1px;
+    background-color: #5B5941;
+}
+
+/* Task App Container */
+.task-app-container {
+    background-color: #f8f9fa;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    max-width: 400px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Add Task Button */
+.add-task-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.add-task-button:hover {
+    background-color: #218838;
+}
+
+/* Task List */
+
+.task-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .task-list-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    width: 200px;
+    /* Adjust width as needed */
+    background-color: #5B5941;
+    padding: 10px;
+    border: solid 2px black;
+    border-radius: 10px;
     cursor: pointer;
+    color: white;
+    font-weight: 100;
+    font-size: 14px;
 }
 
 .toggle-button {
@@ -36,18 +106,73 @@
 .task-list {
     list-style: none;
     padding: 0;
+    width: 300px;
+    /* Adjust width as needed */
+    max-height: 600px;
+    /* Set the maximum height */
+    overflow-y: auto;
+    /* Add scroll if content exceeds max-height */
+    border: solid 2px black;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 
 .task-list li {
-    margin-bottom: 10px;
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: left;
 }
 
+.task-details {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Task Form Popup */
 .task-form-popup {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    max-width: 400px;
+        background-color: white;
+        padding: 30px;
+        padding-right: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        max-width: 400px;
+        margin: 0 auto;
+        /* Center the popup horizontally */
+        margin-top: 50px;
+        /* Adjust the top margin as needed */
+}
+
+
+.task-form-popup.active {
+    display: block;
 }
 
 .task-form-popup h2 {
@@ -55,25 +180,16 @@
     margin-bottom: 10px;
 }
 
-.task-form-popup input {
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-}
-
+.task-form-popup input,
 .task-form-popup textarea {
-    padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     width: 100%;
+    padding: 10px;
     resize: vertical;
-    /* Allow vertical resizing */
     min-height: 100px;
-    /* Minimum height for the textarea */
 }
 
 .task-form-popup button {
@@ -86,6 +202,32 @@
     cursor: pointer;
 }
 
+
+
 .task-form-popup button:hover {
     background-color: #0056b3;
+}
+
+.app {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.nav-link {
+    margin: 0 30px;
+    /* Add spacing between navigation links */
+    text-decoration: none;
+    color: #007bff;
+    font-size: 22px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #0056b3;
 }

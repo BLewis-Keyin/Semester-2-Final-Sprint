@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Home = ({ showTasks }) => {
   const [tasks, setTasks] = useState([]);
@@ -34,12 +36,14 @@ const Home = ({ showTasks }) => {
       <h1>Home Page</h1>
       {showTasks && (
         <div>
-          <h1>Task App</h1>
-          <button onClick={() => setIsFormOpen(true)}>Add Task</button>
+          <button onClick={() => setIsFormOpen(true)}>
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
+        
 
           {isFormOpen && (
             <div className="popup-overlay">
-              <div className="task-form-popup">
+              <div className="task-form-popup active">
                 <h2>Add New Task</h2>
                 <input
                   type="text"
@@ -70,13 +74,14 @@ const Home = ({ showTasks }) => {
               </div>
             </div>
           )}
-
+        <div className='task-list-container'>
           <div className="task-list-header">
             <h2>Task List</h2>
             <button className="toggle-button" onClick={toggleTaskList}>
               {isTaskListOpen ? '▲' : '▼'}
             </button>
-          </div>
+            </div>
+
 
           {isTaskListOpen && (
             <ul className="task-list">
@@ -89,11 +94,13 @@ const Home = ({ showTasks }) => {
                   <strong>Date:</strong> {task.date}
                   <br />
                   <strong>Time:</strong> {task.time}
+                  <br />
                   <button onClick={() => deleteTask(index)}>Delete</button>
                 </li>
               ))}
             </ul>
           )}
+          </div>
         </div>
       )}
     </div>
