@@ -33,7 +33,6 @@ const Home = ({ showTasks }) => {
 
   return (
     <div>
-      <h1>Home Page</h1>
       {showTasks && (
         <div>
           <button onClick={() => setIsFormOpen(true)}>
@@ -51,11 +50,11 @@ const Home = ({ showTasks }) => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <input
-                  type="text"
+                <textarea
                   placeholder="Description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  className="task-info-input" // Add the class name here
                 />
                 <input
                   type="text"

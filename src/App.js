@@ -5,6 +5,9 @@ import Home from './component/home';
 import About from './component/about';
 import Services from './component/services';
 import Contact from './component/contact';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false;
 
 const App = () => {
   return (
