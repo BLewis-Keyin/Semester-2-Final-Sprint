@@ -13,6 +13,7 @@ const Home = ({ showTasks }) => {
   const [time, setTime] = useState('');
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isTaskListOpen, setIsTaskListOpen] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
 
   const addTask = () => {
     if (name.trim() !== '' && description.trim() !== '' && date.trim() !== '' && time.trim() !== '') {
@@ -28,10 +29,24 @@ const Home = ({ showTasks }) => {
   const deleteTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
+    setSelectedTask(null); // Clear selected task when deleted
   };
 
   const toggleTaskList = () => {
     setIsTaskListOpen(!isTaskListOpen);
+    setSelectedTask(null); // Clear selected task when toggling list
+  };
+
+  const toggleTaskDetails = (index) => {
+    if (selectedTask === index) {
+      setSelectedTask(null); // Close details if already open
+    } else {
+      setSelectedTask(index); // Show details for clicked task
+    }
+  };
+
+  const showTaskDetails = (taskIndex) => {
+    setSelectedTask(taskIndex);
   };
 
   return (
@@ -76,33 +91,40 @@ const Home = ({ showTasks }) => {
               </div>
             </div>
           )}
-        <div className='task-list-container'>
-          <div className="task-list-header">
-            <h2>Task List</h2>
-            <button className="toggle-button" onClick={toggleTaskList}>
-              {isTaskListOpen ? '▲' : '▼'}
-            </button>
+          <div className='task-list-container'>
+            <div className="task-list-header">
+              <h2>Task List</h2>
+              <button className="toggle-button" onClick={toggleTaskList}>
+                {isTaskListOpen ? '▲' : '▼'}
+              </button>
             </div>
 
-
-          {isTaskListOpen && (
-            <ul className="task-list">
-              {tasks.map((task, index) => (
-                <li key={index}>
-                  <strong>Name:</strong> {task.name}
-                  <br />
-                  <strong>Description:</strong> {task.description}
-                  <br />
-                  <strong>Date:</strong> {task.date}
-                  <br />
-                  <strong>Time:</strong> {task.time}
-                  <br />
-                  <button onClick={() => deleteTask(index)}>Delete</button>
-                </li>
-              ))}
-            </ul>
-          )}
+            {isTaskListOpen && (
+              <ul className="task-list">
+                {tasks.map((task, index) => (
+                  <li key={index}>
+                    <p className="task-name" onClick={() => showTaskDetails(index)}>
+                      {task.name}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
+        </div>
+      )}
+
+      {/* Display task details area */}
+      <br />
+      <br />
+      
+      {selectedTask !== null && (
+        <div className="task-details-container">
+          <h2>Task Details</h2>
+          <p><strong>Name:</strong> {tasks[selectedTask].name}</p>
+          <p><strong>Description:</strong> {tasks[selectedTask].description}</p>
+          <p><strong>Date:</strong> {tasks[selectedTask].date}</p>
+          <p><strong>Time:</strong> {tasks[selectedTask].time}</p>
         </div>
       )}
     </div>
