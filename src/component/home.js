@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false;
 
 const Home = ({ showTasks }) => {
   const [tasks, setTasks] = useState([]);
@@ -32,10 +35,10 @@ const Home = ({ showTasks }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       {showTasks && (
-        <div>
-          <button onClick={() => setIsFormOpen(true)}>
+        <div className='task-app-container'>
+          <button onClick={() => setIsFormOpen(true)} className="add-task-button">
             <FontAwesomeIcon icon={faPlus} />
           </button>
         
