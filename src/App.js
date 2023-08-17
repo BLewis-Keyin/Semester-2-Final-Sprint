@@ -6,6 +6,9 @@ import About from './component/about';
 import Services from './component/services';
 import Contact from './component/contact';
 
+import logo from './images/logo1.png'
+import AccountIcon from './images/Account icon.png'
+
 
 const App = () => {
   return (
@@ -13,11 +16,13 @@ const App = () => {
       <BrowserRouter>
         <nav className="nav-links">
           <div className='navbar-wrapper'>
+            <img src={logo} className='logo-icon'></img>
             <Link to="/" className="nav-link"><div className='nav-link-container'>Home</div></Link>
             <Link to="/about" className="nav-link"><div className='nav-link-container'>About</div></Link>
             <Link to="/services" className="nav-link"><div className='nav-link-container'>Services</div></Link>
             <Link to="/contact" className="nav-link"><div className='nav-link-container'>Contact</div></Link>
           </div>
+          <img src={AccountIcon} className='account-icon'></img>
         </nav>
 
         <Routes>
