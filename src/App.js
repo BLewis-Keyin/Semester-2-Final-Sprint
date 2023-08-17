@@ -22,8 +22,8 @@ const App = () => {
             <Link to="/services" className="nav-link"><div className='nav-link-container'>Services</div></Link>
             <Link to="/contact" className="nav-link"><div className='nav-link-container'>Contact</div></Link>
           </div>
-          <img src={AccountIcon} className='account-icon'></img>
         </nav>
+        <img src={AccountIcon} className='account-icon'></img>
 
         <Routes>
           <Route path="/" element={<Home showTasks={true} />} />
