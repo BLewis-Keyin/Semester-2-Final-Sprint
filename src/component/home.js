@@ -34,7 +34,6 @@ const Home = ({ showTasks }) => {
 
   const toggleTaskList = () => {
     setIsTaskListOpen(!isTaskListOpen);
-    setSelectedTask(null); // Clear selected task when toggling list
   };
 
   const toggleTaskDetails = (index) => {
@@ -120,11 +119,11 @@ const Home = ({ showTasks }) => {
       
       {selectedTask !== null && (
         <div className="task-details-container">
-          <h2>Task Details</h2>
-          <p><strong>Name:</strong> {tasks[selectedTask].name}</p>
-          <p><strong>Description:</strong> {tasks[selectedTask].description}</p>
-          <p><strong>Date:</strong> {tasks[selectedTask].date}</p>
-          <p><strong>Time:</strong> {tasks[selectedTask].time}</p>
+          <p><strong><div>{tasks[selectedTask].name}</div></strong> </p>
+          <p><b>Description:</b><br /><div className='task-details-box'>{tasks[selectedTask].description}</div></p>
+          <p><b>Date:</b> {tasks[selectedTask].date}</p>
+          <p><b>Time:</b>  {tasks[selectedTask].time}</p>
+          <button className='delete-button' onClick={() => deleteTask(selectedTask)}>Delete</button>
         </div>
       )}
     </div>

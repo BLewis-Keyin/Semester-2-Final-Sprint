@@ -13,10 +13,10 @@ const App = () => {
       <BrowserRouter>
         <nav className="nav-links">
           <div className='navbar-wrapper'>
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/services" className="nav-link">Services</Link>
-            <Link to="/contact" className="nav-link">Contact</Link>
+            <Link to="/" className="nav-link"><div className='nav-link-container'>Home</div></Link>
+            <Link to="/about" className="nav-link"><div className='nav-link-container'>About</div></Link>
+            <Link to="/services" className="nav-link"><div className='nav-link-container'>Services</div></Link>
+            <Link to="/contact" className="nav-link"><div className='nav-link-container'>Contact</div></Link>
           </div>
         </nav>
 
