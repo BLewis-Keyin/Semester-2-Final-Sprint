@@ -8,10 +8,12 @@ import Contact from './component/contact';
 
 import logo from './images/logo1.png'
 import AccountIcon from './images/Account icon.png'
+import { TaskProvider } from './component/TaskContext';
 
 
 const App = () => {
   return (
+    <TaskProvider>
     <div className="app">
       <BrowserRouter>
         <nav className="nav-links">
@@ -32,7 +34,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
-    </div>
+      </div>
+    </TaskProvider>
   );
 };
 

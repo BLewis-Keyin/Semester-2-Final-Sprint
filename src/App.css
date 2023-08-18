@@ -167,6 +167,53 @@ body {
 .delete-button:hover {
     background-color: #c82333;
 }
+/* CSS for Edit Button */
+.edit-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* CSS for Edit Form */
+.edit-form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.edit-form h2 {
+    margin-top: 0;
+}
+
+.edit-form input,
+.edit-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-form button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.edit-form button.cancel-button {
+    background-color: #f44336;
+}
+
+
 
 /* Popup Overlay */
 .popup-overlay {
