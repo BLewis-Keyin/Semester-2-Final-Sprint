@@ -42,6 +42,7 @@ body {
 }
 
 .navbar-wrapper {
+    position: relative;
     padding: 10px;
     border: solid black 1px;
     background-color: #5B5941;
@@ -399,7 +400,7 @@ text-align: center;
     background-image: url('./images/About\ page\ Background\ 3.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     overflow: visible;
     position: fixed;
     top: 0;
@@ -408,4 +409,133 @@ text-align: center;
     height: 100%;
     z-index: 1;
             /* Make sure this is higher than the navbar's z-index */
+}
+
+/*about page*/
+
+.about-container {
+    font-size: 18px;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    top:120px;
+    left: 370px;
+    width: 860px;
+    height: 640px;
+    background-color: white;
+    z-index: 1;
+}
+
+
+
+.about-text {
+    padding: 20px;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brookelynn-image {
+    display: flex;
+    position: relative;
+    max-width: 60%;
+    max-height: 60%;
+    z-index: -1;
+    left:400px;
+    bottom: 200px;
+}
+
+.evan-image {
+    display: flex;
+    position: relative;
+    max-width: 40%;
+    max-height: 40%;
+    z-index: -1;
+    right: 60px;
+    bottom: 90px;
+}
+
+.brandon-image {
+    position: relative;
+    height: 280px;
+    width: 240px;
+    z-index: -1;
+    bottom: 60px;
+    left: 50px;
+}
+
+.personal-container-brookelyn {
+    width: 400px;
+    padding: 10px;
+    padding-top: 100px;
+margin-left: 50px;
+}
+
+.personal-container-evan {
+    display: flex;
+    position: relative;
+    bottom: 160px;
+    left: 100px;
+    width: 600px;
+    padding: 10px;
+    padding-top: 10px;
+    margin-left: 10px;
+    flex-direction: row;
+}
+
+.personal-container-brandon {
+    display: flex;
+        position: relative;
+        bottom: 160px;
+        left: 100px;
+        width: 600px;
+        padding: 10px;
+        padding-top: 10px;
+        margin-left: 10px;
+        flex-direction: row;
+}
+/* Services page */
+
+.services-container {
+    position: relative;
+    top: 150px;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+}
+
+.services-image-container {
+    display: flex;
+    position: relative;
+    left: 365px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-right: 60px;
+    justify-content: center;
+    float: left;
+    height: 300px;
+    width: 300px;
+    background-color: white;
+
+}
+
+.check-marks-image {
+    position: relative;
+    top: 10px;
+    height: 90%;
+    width: 90%;
+}
+
+.follow-image {
+    position: relative;
+    top: 10px;
+    height: 90%;
+    width: 90%;
 }
